@@ -1,10 +1,12 @@
 module TodoMvc
   class App < Padrino::Application
-    register SassInitializer
+    # register SassInitializer
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
     register Padrino::Rendering
     register Padrino::Mailer
     register Padrino::Helpers
+
+    register SprocketsInitializer::Assets
 
     enable :sessions
 
@@ -59,5 +61,9 @@ module TodoMvc
     #     render 'errors/505'
     #   end
     #
+
+    get "/" do
+        render "index"
+    end
   end
 end
